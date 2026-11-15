@@ -25,7 +25,7 @@ coverage/
 chroma_db/
 vector_db/
 
-# Operating system and editor
+# Ope?>rating system and editor
 .DS_Store
 Thumbs.db
 .vscode/
