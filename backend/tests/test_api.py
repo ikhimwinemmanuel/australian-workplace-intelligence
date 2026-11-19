@@ -2,6 +2,7 @@
 from fastapi.testclient import TestClient
 from app.main import app
 
+
 client = TestClient(app)
 
 
@@ -39,5 +40,11 @@ def test_chat_rejects_empty_question():
     assert error["loc"] == ["body", "question"]
     assert error["type"] == "string_too_short"
 
+def test_chat_rejects_whitespace_only_question():
+    payload = {"question": "   "}
+
+    response = client.post("/api/chat", json=payload)
+
+    assert response.status_code == 422
 
 
